@@ -1,3 +1,30 @@
+# Лабораторная работа №2: Модель регрессии и MLflow
+
+## Инструкция по запуску
+1. Создайте и активируйте виртуальное окружение:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+
+2. Установите зависимости:
+    ```bash
+    pip install pandas scikit-learn joblib matplotlib seaborn mlflow
+
+3. Запустите обучение моделей (E0–E4) и логирование в MLflow::
+    ```bash
+    python src/train.py
+
+4. Запустите анализ ошибок (построит график и выведет топ-5 ошибок):
+    ```bash
+    python src/evaluate.py
+
+5. Запустите тесты для проверки работоспособности:
+    ```bash
+    python tests/test_model.py
+
+
+
+
 # Fish Weight Prediction Model:
 
 ![Fish](images/Fishlength.jpg)
