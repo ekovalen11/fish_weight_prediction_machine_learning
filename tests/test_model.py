@@ -84,4 +84,14 @@ sklearn_mse = mean_squared_error(y_true_sample, y_pred_sample)
 assert np.isclose(manual_mse, sklearn_mse), "ОШИБКА: Ручной расчет MSE не совпадает со sklearn!"
 print("Тест 4 (ручной расчет метрики): ПРОЙДЕН")
 
+# --- ТЕСТ 5: Сохраненная модель воспроизводит прогнозы ---
+import joblib
+# Загружаем модель, которую мы сохранили в train.py
+loaded_model = joblib.load("models/best_model.joblib")
+loaded_preds = loaded_model.predict(X_test)
+
+# Сравниваем прогнозы исходной модели и загруженной (допуск 0.001)
+assert np.allclose(y_pred, loaded_preds, atol=1e-3), "ОШИБКА: Загруженная модель выдает другие прогнозы!"
+print("Тест 5 (воспроизводимость после загрузки): ПРОЙДЕН")
+
 print("\nВсе тесты успешно пройдены!")
